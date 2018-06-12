@@ -1,0 +1,27 @@
+node {
+  // Mark the code checkout 'stage'....
+
+  stage ("Checkout"){
+    git([url: "https://github.com/soniya-mi/media-ocean.git"])
+  }
+
+  stage ("Build"){
+      sh 'mvn clean install '
+      sh 'cp ./multi-module/webapp/target/webapp.war DockerBuild'
+  }
+  stage ("archieve"){
+      archiveArtifacts "multi-module/webapp/target/*.war"
+  }
+  stage('Build image') {
+        sh 'docker build . -t soniyami/sample-mvn:latest'
+    }
+  stage('Push image') {
+        withDockerRegistry([ credentialsId: "docker-hub-credentials", url: "" ]) {
+            sh 'docker push soniyami/sample-mvn:latest'
+     }
+      stage('email'){
+        emailext attachLog: true, body: '', compressLog: true, replyTo: 'noreply@gmail.com', subject: 'failed build', to: 'soni.jhindal87@gmail.com'
+    }
+
+ }
+}
