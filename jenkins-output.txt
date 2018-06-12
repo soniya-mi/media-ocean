@@ -1,0 +1,313 @@
+Started by an SCM change
+Running in Durability level: MAX_SURVIVABILITY
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/sample-mvn@2
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] git
+Cloning the remote Git repository
+Cloning repository https://github.com/soniya-mi/media-ocean.git
+ > git init /var/lib/jenkins/workspace/sample-mvn@2 # timeout=10
+Fetching upstream changes from https://github.com/soniya-mi/media-ocean.git
+ > git --version # timeout=10
+ > git fetch --tags --progress https://github.com/soniya-mi/media-ocean.git +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url https://github.com/soniya-mi/media-ocean.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/soniya-mi/media-ocean.git # timeout=10
+Fetching upstream changes from https://github.com/soniya-mi/media-ocean.git
+ > git fetch --tags --progress https://github.com/soniya-mi/media-ocean.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision 7aadf0304e43bf9b71b9d5b2cee560a4ef96c8ae (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 7aadf0304e43bf9b71b9d5b2cee560a4ef96c8ae
+ > git branch -a -v --no-abbrev # timeout=10
+ > git checkout -b master 7aadf0304e43bf9b71b9d5b2cee560a4ef96c8ae
+Commit message: "read me for jenkins"
+ > git rev-list --no-walk a2b3a4e231e85e32c98709031035bd17f97944c5 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] sh
+[sample-mvn@2] Running shell script
++ mvn clean install
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Multi Module Project Parent
+[INFO] Server
+[INFO] Webapp
+[INFO] A Single Maven Module
+[INFO] Parent
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Multi Module Project Parent 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ multi-module-parent ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ multi-module-parent ---
+[INFO] Installing /var/lib/jenkins/workspace/sample-mvn@2/multi-module/pom.xml to /var/lib/jenkins/.m2/repository/com/example/maven-samples/multi-module-parent/1.0-SNAPSHOT/multi-module-parent-1.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Server 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ server ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ server ---
+[debug] execute contextualize
+[INFO] Using 'utf-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /var/lib/jenkins/workspace/sample-mvn@2/multi-module/server/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ server ---
+[INFO] Compiling 1 source file to /var/lib/jenkins/workspace/sample-mvn@2/multi-module/server/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ server ---
+[debug] execute contextualize
+[INFO] Using 'utf-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /var/lib/jenkins/workspace/sample-mvn@2/multi-module/server/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ server ---
+[INFO] Compiling 1 source file to /var/lib/jenkins/workspace/sample-mvn@2/multi-module/server/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.11:test (default-test) @ server ---
+[INFO] Surefire report directory: /var/lib/jenkins/workspace/sample-mvn@2/multi-module/server/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.example.TestGreeter
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.191 sec
+
+Results :
+
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ server ---
+[INFO] Building jar: /var/lib/jenkins/workspace/sample-mvn@2/multi-module/server/target/server.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ server ---
+[INFO] Installing /var/lib/jenkins/workspace/sample-mvn@2/multi-module/server/target/server.jar to /var/lib/jenkins/.m2/repository/com/example/maven-samples/server/1.0-SNAPSHOT/server-1.0-SNAPSHOT.jar
+[INFO] Installing /var/lib/jenkins/workspace/sample-mvn@2/multi-module/server/pom.xml to /var/lib/jenkins/.m2/repository/com/example/maven-samples/server/1.0-SNAPSHOT/server-1.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Webapp 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ webapp ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ webapp ---
+[debug] execute contextualize
+[INFO] Using 'utf-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /var/lib/jenkins/workspace/sample-mvn@2/multi-module/webapp/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ webapp ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ webapp ---
+[debug] execute contextualize
+[INFO] Using 'utf-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /var/lib/jenkins/workspace/sample-mvn@2/multi-module/webapp/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ webapp ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.11:test (default-test) @ webapp ---
+[INFO] No tests to run.
+[INFO] Surefire report directory: /var/lib/jenkins/workspace/sample-mvn@2/multi-module/webapp/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-war-plugin:2.2:war (default-war) @ webapp ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [webapp] in [/var/lib/jenkins/workspace/sample-mvn@2/multi-module/webapp/target/webapp]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/var/lib/jenkins/workspace/sample-mvn@2/multi-module/webapp/src/main/webapp]
+[INFO] Webapp assembled in [158 msecs]
+[INFO] Building war: /var/lib/jenkins/workspace/sample-mvn@2/multi-module/webapp/target/webapp.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ webapp ---
+[INFO] Installing /var/lib/jenkins/workspace/sample-mvn@2/multi-module/webapp/target/webapp.war to /var/lib/jenkins/.m2/repository/com/example/maven-samples/webapp/1.0-SNAPSHOT/webapp-1.0-SNAPSHOT.war
+[INFO] Installing /var/lib/jenkins/workspace/sample-mvn@2/multi-module/webapp/pom.xml to /var/lib/jenkins/.m2/repository/com/example/maven-samples/webapp/1.0-SNAPSHOT/webapp-1.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building A Single Maven Module 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ single-module-project ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ single-module-project ---
+[debug] execute contextualize
+[INFO] Using 'utf-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /var/lib/jenkins/workspace/sample-mvn@2/single-module/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ single-module-project ---
+[INFO] Compiling 1 source file to /var/lib/jenkins/workspace/sample-mvn@2/single-module/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ single-module-project ---
+[debug] execute contextualize
+[INFO] Using 'utf-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /var/lib/jenkins/workspace/sample-mvn@2/single-module/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ single-module-project ---
+[INFO] Compiling 1 source file to /var/lib/jenkins/workspace/sample-mvn@2/single-module/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.11:test (default-test) @ single-module-project ---
+[INFO] Surefire report directory: /var/lib/jenkins/workspace/sample-mvn@2/single-module/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.example.TestGreeter
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.161 sec
+
+Results :
+
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ single-module-project ---
+[INFO] Building jar: /var/lib/jenkins/workspace/sample-mvn@2/single-module/target/single-module-project.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ single-module-project ---
+[INFO] Installing /var/lib/jenkins/workspace/sample-mvn@2/single-module/target/single-module-project.jar to /var/lib/jenkins/.m2/repository/com/example/maven-samples/single-module-project/1.0-SNAPSHOT/single-module-project-1.0-SNAPSHOT.jar
+[INFO] Installing /var/lib/jenkins/workspace/sample-mvn@2/single-module/pom.xml to /var/lib/jenkins/.m2/repository/com/example/maven-samples/single-module-project/1.0-SNAPSHOT/single-module-project-1.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Parent 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ parent ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ parent ---
+[INFO] Installing /var/lib/jenkins/workspace/sample-mvn@2/pom.xml to /var/lib/jenkins/.m2/repository/com/example/maven-samples/parent/1.0-SNAPSHOT/parent-1.0-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] Multi Module Project Parent ........................ SUCCESS [  2.333 s]
+[INFO] Server ............................................. SUCCESS [  9.329 s]
+[INFO] Webapp ............................................. SUCCESS [  2.635 s]
+[INFO] A Single Maven Module .............................. SUCCESS [ 21.318 s]
+[INFO] Parent ............................................. SUCCESS [  0.022 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 36.393 s
+[INFO] Finished at: 2018-06-12T02:29:04-07:00
+[INFO] Final Memory: 27M/195M
+[INFO] ------------------------------------------------------------------------
+[Pipeline] sh
+[sample-mvn@2] Running shell script
++ cp ./multi-module/webapp/target/webapp.war DockerBuild
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (archieve)
+[Pipeline] archiveArtifacts
+Archiving artifacts
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build image)
+[Pipeline] sh
+[sample-mvn@2] Running shell script
++ docker build . -t soniyami/sample-mvn:latest
+Sending build context to Docker daemon 287.2 kB
+
+Step 1/3 : FROM jetty
+ ---> 7933ac933512
+Step 2/3 : ADD multi-module/webapp/target/webapp.war /var/lib/jetty/webapps/ROOT.war
+ ---> 10183661150c
+Removing intermediate container a6a8a38f066b
+Step 3/3 : CMD java -jar /usr/local/jetty/start.jar
+ ---> Running in 05193a43283c
+ ---> 6881f8745c67
+Removing intermediate container 05193a43283c
+Successfully built 6881f8745c67
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Push image)
+[Pipeline] withDockerRegistry
+$ docker login -u soniyami -p ******** https://index.docker.io/v1/
+Login Succeeded
+[Pipeline] {
+[Pipeline] sh
+[sample-mvn@2] Running shell script
++ docker push soniyami/sample-mvn:latest
+The push refers to a repository [docker.io/soniyami/sample-mvn]
+d2266af14038: Preparing
+2a654e377a61: Preparing
+0fe8c4c21cdb: Preparing
+e734b8a45ab6: Preparing
+6146b039e362: Preparing
+414a58277ea0: Preparing
+a2530f332109: Preparing
+7c5800384b69: Preparing
+7b2c5d2b816e: Preparing
+993603ae498c: Preparing
+1c1f509b94fb: Preparing
+979fc76b7e77: Preparing
+20f08d1ba4f1: Preparing
+a130cc33ffce: Preparing
+3fa6e458af6f: Preparing
+0f3a12fef684: Preparing
+7b2c5d2b816e: Waiting
+993603ae498c: Waiting
+1c1f509b94fb: Waiting
+979fc76b7e77: Waiting
+20f08d1ba4f1: Waiting
+a130cc33ffce: Waiting
+3fa6e458af6f: Waiting
+0f3a12fef684: Waiting
+a2530f332109: Waiting
+7c5800384b69: Waiting
+414a58277ea0: Waiting
+0fe8c4c21cdb: Layer already exists
+2a654e377a61: Layer already exists
+e734b8a45ab6: Layer already exists
+6146b039e362: Layer already exists
+414a58277ea0: Layer already exists
+a2530f332109: Layer already exists
+7c5800384b69: Layer already exists
+7b2c5d2b816e: Layer already exists
+979fc76b7e77: Layer already exists
+1c1f509b94fb: Layer already exists
+20f08d1ba4f1: Layer already exists
+993603ae498c: Layer already exists
+3fa6e458af6f: Layer already exists
+d2266af14038: Pushed
+a130cc33ffce: Layer already exists
+0f3a12fef684: Layer already exists
+latest: digest: sha256:702471c4385a60d71009f8c0ffa2f4c770e520dbaafdb00cabe18c89349b8ece size: 3664
+[Pipeline] }
+[Pipeline] // withDockerRegistry
+[Pipeline] stage
+[Pipeline] { (email)
+[Pipeline] emailext
+Request made to compress build log
+Sending email to: soni.jhindal87@gmail.com
+Connection error sending email, retrying once more in 10 seconds...
+Connection error sending email, retrying once more in 10 seconds...
+Failed after second try sending email
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
