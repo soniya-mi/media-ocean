@@ -1,0 +1,22 @@
+A. What jenkins file does : 
+	
+	1. Polls SCM for every minute change in git repo.
+	2. Checkout code from : https://github.com/soniya-mi/media-ocean.git
+	3. Build the war file using mvn clean install ( clean install helps run sme basic tests against code )
+	4. Archieve the war to some folder , not used any tool for the same simple archieval option in jenkins.
+	5. Builds docker image from docker file which is checked in at the git repo.
+	6. Pushes image to docker hub registry.
+	7. Email in case of failure to soni.jhindal87@gmail.com from jenkins
+	
+B. What DockerFile does : 
+	1. Pull jetty image from docker hub
+	2. Copy the built webapp.war to correct directory so that it can be considered deploayed.
+	3. Start java command when the container runs.
+
+Command to see if the docker containe is running correctly:
+
+docker run -it soniyami/sample-mvn
+
+PULL : docker pull soniyami/sample-mvn
+
+docker image  : https://hub.docker.com/r/soniyami/sample-mvn/
